@@ -7,7 +7,7 @@
 [![License][license-image]][license-url]
 [![Twitter][twitter-image]][twitter-url]
 
-Helps you keep track of how much time you spend on your projects and tasks. A sqlite database is used to track your time logs, and it is kept simply by only implementing as few commands as needed to get a full featured application. You can add/remove multiple projects, start/stop tracking any of them, or completely reset the database to start with a clean slate.
+Helps you keep track of how much time you spend on your projects and tasks. A sqlite database is used to track your time logs, and it is kept simple by only implementing as few commands as needed to get a full featured application. You can add/remove multiple projects, start/stop tracking any of them, or completely reset the database to start with a clean slate.
 
 ## Installation
 
@@ -26,7 +26,7 @@ python setup.py install
 
 ## Usage example
 
-This application is really simple to use. To get help on the different commands simply add *--help* to the end of the command. Each command can additionally provide more help information if you add *--help* behind it.
+This application is really simple to use. To get help simply add *--help* as an argument. Each command can additionally provide more help information if you add *--help* behind it.
 
 ```bash
 pytrack --help
