@@ -26,7 +26,7 @@ python setup.py install
 
 ## Usage example
 
-This application is really simple to use. To get help on the different commands simply add --help to the end of the command.
+This application is really simple to use. To get help on the different commands simply add *--help* to the end of the command. Each command can additionally provide more help information if you add *--help* behind it.
 
 ```bash
 pytrack --help
@@ -44,6 +44,103 @@ Commands:
   stop    Stops active tracking of project
 ```
 
+### List all projects
+To list all of the projects that you are currently tracking:
+
+```bash
+pytrack
+ [1] 0:00:00 INACTIVE: Put together a README.md file
+*[2] 0:36:02 INACTIVE: Create setup.py
+```
+
+> NOTE: If you don't currently have any projects in the database, the program will let you know that.
+
+The project marked with an ``*`` is the currently selected project. This means that the **start** and **stop** commands will apply to that project.
+
+### Add a new project
+To add a new project use the **add** command followed by the name of your project. If longer than one word, enclose it in quotes.
+
+```bash
+pytrack add "Replace the motor on the A/C unit"
+Added Project: [3] Replace the motor on the A/C unit
+Selected: [3] Replace the motor on the A/C unit
+```
+
+The project is added and selected as the default project.
+
+### Remove a project
+To remove a project use the **remove** command followed by the project id.
+
+> NOTE: To get the project id, just run **pytrack** by itself.
+
+```bash
+pytrack remove 3
+About to remove [3] Replace the motor on the A/C unit
+Are you sure (y/n): y
+Removed [3] Replace the motor on the A/C unit
+```
+
+You are asked to confirm your action and a confirmation message is displayed.
+
+### Select a project
+To switch the default project, use the **select** command.
+
+```bash
+pytrack select 1
+Selected: [1] Put together a README.md file
+```
+
+### Start tracking the currently selected project
+If you are ready to work on a project that you want to track, simply issue the **start** command to start tracking it.
+
+```bash
+pytrack start
+Activating: Put together a README.md file
+```
+
+You are now tracking this project. If you run the **pytrack** by itself to confirm that the project is now *ACTIVE*.
+
+```bash
+pytrack
+*[1] 0:00:00 ACTIVE: Put together a README.md file
+ [2] 0:36:02 INACTIVE: Create setup.py
+```
+
+### Stop tracking the currently ACTIVE project
+When you are finished or are read to take a break simply run the **stop** command.
+
+```bash
+pytrack stop
+Deactivating: Put together a README.md file with total time of 0:05:08
+```
+
+You will be given a summary of how long you have been working on the project. This will also be updated in the project listing.
+
+```bash
+pytrack
+*[1] 0:05:08 INACTIVE: Put together a README.md file
+ [2] 0:36:02 INACTIVE: Create setup.py
+```
+
+The default project will remain selected until you add a new project or you change it yourself. When you are ready to start working on the project again, just use the **start** command once again. When this run is stopped, the accumulated times of all runs will be summarized in the project listing.
+
+> NOTE: Feel free to take as many breaks as needed, you can always start tracking once again at any time.
+
+### Reset the database
+If you have completed all of your projects and you want to start with a clean slate so that your new projects don't start at the last created project id, simply **reset** the database.
+
+```bash
+pytrack reset
+WARNING: You are about to delete all records!
+Are you sure (y/n/): y
+All records have been removed.
+```
+
+> WARNING: This is unrecoverable! Make sure that you truly want to delete all logs!
+
+## TODO
+* I plan on adding an option to output the logs into a csv file.
+
 ## Development setup
 
 If you would like to install this in order to play around with the code and make modifications yourself, simply change the last command in the installation instructions above to the following:
@@ -54,13 +151,14 @@ python setup.py develop
 
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
+* 0.0.5
+    * FIX: Fixed bug when the currently selected project is removed, no other is selected as the default.
 * 0.0.4
     * CHANGE: Refactored into a package
-    * ADD: Added setup.py, README.md, LICENSE
+    * ADD: Added setup.py, README.md, and LICENSE
 * 0.0.3
-    * ADD: Added PeeWee backend and started using Maya for datetime objects
+    * ADD: Added PeeWee backend
+    * ADD: Started using Maya for datetime objects
 * 0.0.2
     * The first true commandline version
     * CHANGE: Modified into a commandline utility
@@ -74,7 +172,7 @@ Martin Uribe – [@mohhinder](https://twitter.com/mohhinder) – clamytoe@gmail.
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/clamytoe/pyTrack](https://github.com/clamytoe/)
+[https://github.com/clamytoe/pyTrack](https://github.com/clamytoe/pyTrack)
 
 [issues-image]:https://img.shields.io/github/issues/clamytoe/pyTrack.svg
 [issues-url]:https://github.com/clamytoe/pyTrack/issues
