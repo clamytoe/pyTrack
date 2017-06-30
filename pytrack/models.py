@@ -14,6 +14,7 @@ if not path.exists(DB_FOLDER):
 
 db = SqliteDatabase(DATABASE)
 
+
 class BaseModel(Model):
     class Meta:
         database = db
@@ -28,7 +29,6 @@ class Project(BaseModel):
     selected = BooleanField(default=0)
     status = BooleanField(default=0)
     duration = CharField(default='0:00:00')
-
 
     class Meta:
         db_table = 'projects'
