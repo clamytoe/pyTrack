@@ -1,6 +1,8 @@
 .cache
 .idea
 __pycache__
+build
+dist
 pyTrack.egg-info
 pyTrack_db.sqlite
 venv
