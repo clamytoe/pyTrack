@@ -168,6 +168,9 @@ python setup.py develop
 
 ## Release History
 
+* 0.1.0
+    * CHANGE: Moved the database file into the home directory of the user because when installed, the database was getting created from wherever the command was being issued.
+    * CHANGE: Renamed the database file.
 * 0.0.6
     * CHANGE: Removed all f-strings so that the code could be used in older versions of Python.
 * 0.0.5
