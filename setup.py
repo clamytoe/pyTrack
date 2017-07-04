@@ -4,7 +4,7 @@ from setuptools import setup
 
 
 setup(
-    name='pyTrack',
+    name='pytrack',
     version='0.1.2',
     author='Martin Uribe',
     author_email='clamytoe@gmail.com',
