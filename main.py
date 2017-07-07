@@ -47,10 +47,10 @@ def add(name):
 
 
 @cli.command()
-@click.argument('project_id', type=click.INT)
-def select(project_id):
-    """Marks the given project ID as selected"""
-    select_project(project_id)
+def gui():
+    """Start the program with a gui front end"""
+    import gui
+    gui.main()
 
 
 @cli.command()
@@ -64,6 +64,13 @@ def remove(project_id):
 def reset():
     """Reset the database"""
     reset_db()
+
+
+@cli.command()
+@click.argument('project_id', type=click.INT)
+def select(project_id):
+    """Marks the given project ID as selected"""
+    select_project(project_id)
 
 
 @cli.command()

@@ -187,6 +187,9 @@ pip install -e .
 
 ## Release History
 
+* 0.2.0
+    * ADDED: Added a GUI interface to the project.
+    * CHANGE: Changed some code so that it would work with the GUI.
 * 0.1.2
     * CHANGE: Modified to use pip to install the package.
 * 0.1.1

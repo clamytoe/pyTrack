@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='pytrack',
-    version='0.1.2',
+    version='0.2.0',
     author='Martin Uribe',
     author_email='clamytoe@gmail.com',
     url='https://github.com/clamytoe/pyTrack',
@@ -18,6 +18,7 @@ setup(
     packages=['pytrack'],
     keywords='project tracker peewee click maya',
     py_modules=[
+        'gui',
         'main',
         'pytrack.models',
         'pytrack.pytrack',

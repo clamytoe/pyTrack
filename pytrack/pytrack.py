@@ -124,7 +124,7 @@ def select_project(id):
             _ = get_projects(display=True)
 
 
-def remove_project(id):
+def remove_project(id, safe=True):
     """Remove the project by the entered ID"""
     project = False
     selected = 0
@@ -139,31 +139,42 @@ def remove_project(id):
             select = proj.id
 
     if project:
-        print('About to remove [{}] {}'.format(project.id, project.name))
-        answer = input('Are you sure (y/n): ')
-        if 'y' in answer.lower():
+        if safe:
+            print('About to remove [{}] {}'.format(project.id, project.name))
+            answer = input('Are you sure (y/n): ')
+            if 'y' in answer.lower():
+                project.delete_instance()
+                print('Removed [{}] {}'.format(project.id, project.name))
+                if selected and select:
+                    select_project(select)
+            else:
+                print('Aborted')
+        else:
             project.delete_instance()
-            print('Removed [{}] {}'.format(project.id, project.name))
             if selected and select:
                 select_project(select)
-        else:
-            print('Aborted')
     else:
         print('Project [{}] does not exists!'.format(id))
 
 
-def reset_db():
+def reset_db(safe=True):
     """Reset the database"""
-    print('WARNING: You are about to delete all records!')
-    answer = input('Are you sure (y/n/): ')
-    if 'y' in answer.lower():
+    if safe:
+        print('WARNING: You are about to delete all records!')
+        answer = input('Are you sure (y/n/): ')
+        if 'y' in answer.lower():
+            p = Project.delete()
+            p.execute()
+            l = Log.delete()
+            l.execute()
+            print('All records have been removed.')
+        else:
+            print('Aborted')
+    else:
         p = Project.delete()
         p.execute()
         l = Log.delete()
         l.execute()
-        print('All records have been removed.')
-    else:
-        print('Aborted')
 
 
 def start_tracking():
