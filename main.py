@@ -49,8 +49,9 @@ def add(name):
 @cli.command()
 def gui():
     """Start the program with a gui front end"""
-    import gui
-    gui.main()
+    import gui_oop as gui
+    # gui.main()
+    interface = gui.GUI()
 
 
 @cli.command()

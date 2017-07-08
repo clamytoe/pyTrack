@@ -268,7 +268,7 @@ def setup_tab3(tab):
 
 def setup_tab4(tab):
     # about frame
-    about_app = '\nPython Time Tracker (pytt)\nVer: {}\n\n{}\n'.format(__version__, __author__)
+    about_app = 'Python Time Tracker (pytt)\nVer: {}\n\n{}'.format(__version__, __author__)
     about_frame = ttk.LabelFrame(tab, text='About')
     about_frame.grid(columnspan=2, row=0, padx=5, pady=5, sticky='ew')
     about = ttk.Label(about_frame, text=about_app, justify='center')

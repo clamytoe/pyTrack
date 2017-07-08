@@ -49,7 +49,7 @@ tzlocal==1.4
 Uninstalling the package is very simple.
 
 ```bash
-pip uninstall pyTrack
+pip uninstall pytrack
 ```
 
 ## Usage example
@@ -65,6 +65,7 @@ Options:
 
 Commands:
   add     Add a new project
+  gui     Start the program with a gui front end
   remove  Remove the project by the entered ID
   reset   Reset the database
   select  Marks the given project ID as selected
@@ -97,6 +98,18 @@ Selected: [3] Replace the motor on the A/C unit
 ```
 
 The project is added and selected as the default project.
+
+### GUI
+Just what the command implies. If you would prefer to use the GUI start it as so:
+
+```bash
+pytrack gui
+```
+
+It has four tabs: Main, New, Remove, About
+
+Through it, you can do pretty much everything that you can do through the command line except for clearing the database.
+You'll have to do it a project at a time.
 
 ### Remove a project
 

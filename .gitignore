@@ -4,5 +4,5 @@ __pycache__
 build
 dist
 pyTrack.egg-info
-pyTrack_db.sqlite
 venv
+gui_oop.py
