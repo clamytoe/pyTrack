@@ -106,7 +106,19 @@ Just what the command implies. If you would prefer to use the GUI start it as so
 pytrack gui
 ```
 
-It has four tabs: Main, New, Remove, About
+It has four tabs: 
+
+#### Main
+![main_tab](images/main.png)
+
+#### Add
+![add_tab](images/add.png)
+
+#### Remove
+![remove_tab](images/remove.png)
+
+#### About
+![about_tab](images/about.png)
 
 Through it, you can do pretty much everything that you can do through the command line except for clearing the database.
 You'll have to do it a project at a time.
